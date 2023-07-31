@@ -1,0 +1,8 @@
+<div>
+  <div *ngIf="!clicked; else clickedBlock" (click)="adjust()">
+    <fa-icon [icon]="faB"> </fa-icon>
+  </div>
+  <ng-template #clickedBlock>
+    <fa-icon [icon]="faT" (click)="adjust()"> </fa-icon>
+  </ng-template>
+</div>
