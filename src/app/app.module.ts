@@ -8,6 +8,7 @@ import { SearchBarComponent } from './components/search-bar/search-bar/search-ba
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HeaderComponent } from './components/search-bar/header/header.component';
 import { MenuComponent } from './components/search-bar/menu/menu.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { MenuComponent } from './components/search-bar/menu/menu.component';
     HeaderComponent,
     MenuComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FontAwesomeModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, FontAwesomeModule, FormsModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
