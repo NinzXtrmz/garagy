@@ -1,0 +1,7 @@
+.headerItems {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: end;
+  margin-top: -10px;
+}
