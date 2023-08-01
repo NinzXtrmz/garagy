@@ -1,8 +1,6 @@
-<div>
-  <div *ngIf="!clicked; else clickedBlock" (click)="adjust()">
-    <fa-icon [icon]="faB"> </fa-icon>
-  </div>
-  <ng-template #clickedBlock>
-    <fa-icon [icon]="faT" (click)="adjust()"> </fa-icon>
-  </ng-template>
-</div>
+<nav class="nav">
+  <a class="nav-link active" aria-current="page" routerLink="">Home</a>
+  <a class="nav-link" routerLink="#">Settings</a>
+  <a class="nav-link" routerLink="#">Help</a>
+  <a class="nav-link" routerLink="#">Log out</a>
+</nav>
