@@ -1,5 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { faMagnifyingGlass, faTimes } from '@fortawesome/free-solid-svg-icons';
+import {
+  FormControl,
+  ReactiveFormsModule,
+  FormGroup,
+  NgForm,
+} from '@angular/forms';
 @Component({
   selector: 'app-search-bar',
   templateUrl: './search-bar.component.html',
@@ -8,15 +14,17 @@ import { faMagnifyingGlass, faTimes } from '@fortawesome/free-solid-svg-icons';
 export class SearchBarComponent implements OnInit {
   faMG = faMagnifyingGlass;
   faT = faTimes;
-
   text?: string;
-  locations: string[] = [];
+  cityName: any;
 
-  constructor() {}
+  constructor() {
+    this.cityName = new FormGroup({
+      name: new FormControl(),
+    });
+  }
 
   searchRes() {
-    console.log('hey');
-    //Todo insert function
+    //TODO add a function here
   }
 
   ngOnInit(): void {}

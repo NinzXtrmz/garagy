@@ -1,10 +1,10 @@
-<div class="form-control">
+<form [formGroup]="cityName">
   <input
     type="text"
-    name="text"
+    formControlName="name"
     [(ngModel)]="text"
     id="text"
     placeholder="Search"
   />
   <fa-icon (click)="searchRes()" [icon]="faMG"></fa-icon>
-</div>
+</form>

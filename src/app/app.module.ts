@@ -9,6 +9,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { SearchBarComponent } from './components/search-bar/search-bar/search-bar.component';
@@ -16,6 +17,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { BodyComponent } from './components/body/body.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ParkingComponent } from './components/parking/parking.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { FooterComponent } from './components/footer/footer.component';
     MenuComponent,
     BodyComponent,
     FooterComponent,
+    ParkingComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,6 +38,7 @@ import { FooterComponent } from './components/footer/footer.component';
     MatSidenavModule,
     MatMenuModule,
     HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

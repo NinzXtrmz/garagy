@@ -9,24 +9,29 @@ export class ApiServiceService {
   apiUrl = 'http://localhost:4000';
 
   constructor(private http: HttpClient) {}
+  /*getAvailableparks(name:string)
+  {
+    console.log(name);
 
-  getPosts(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/posts`);
-  }
-
-  getPostById(id: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/posts/${id}`);
-  }
-
-  addPost(post: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/posts`, post);
-  }
-
-  updatePost(id: number, post: any): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/posts/${id}`, post);
-  }
-
-  deletePost(id: number): Observable<any> {
-    return this.http.delete<any>(`${this.apiUrl}/posts/${id}`);
-  }
+    this.http.get<any[]>(this.apiURL).pipe(
+      map((result: any[]) =>
+        result.map((item) => {
+          if(name==item.city)
+          {
+            console.log(item.city);
+            console.log(item.parkid)
+            alert("place found")
+            this.str1=item.city;
+            this.str2=item.address;
+            this.str3=item.area;
+            this.str4=item.parkid;
+            this.str5=item.hours;
+          }
+          else
+          {
+            alert('not found')
+          }
+        })
+      )
+    ).subscribe();*/
 }
