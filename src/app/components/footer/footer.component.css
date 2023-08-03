@@ -1,0 +1,6 @@
+ul {
+  display: flex;
+  flex: row;
+  justify-items: left;
+  justify-content: space-around;
+}

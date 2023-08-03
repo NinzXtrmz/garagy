@@ -2,16 +2,20 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { MatMenuModule } from '@angular/material/menu';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HttpClientModule } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { SearchBarComponent } from './components/search-bar/search-bar/search-bar.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HeaderComponent } from './components/header/header.component';
-import { MenuComponent } from './components/search-bar/menu/menu.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSidenavModule } from '@angular/material/sidenav';
+import { MenuComponent } from './components/menu/menu.component';
 import { BodyComponent } from './components/body/body.component';
-import { MatMenuModule } from '@angular/material/menu';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +24,7 @@ import { MatMenuModule } from '@angular/material/menu';
     HeaderComponent,
     MenuComponent,
     BodyComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +34,7 @@ import { MatMenuModule } from '@angular/material/menu';
     BrowserAnimationsModule,
     MatSidenavModule,
     MatMenuModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,7 +1,26 @@
 .container {
-  background: orange;
-  border-radius: 20px;
+  background: purple;
   padding: 20px;
-  border-style: solid;
-  border-color: black;
+  color: white;
+}
+
+#body {
+  background-color: white;
+  margin-top: 10px;
+  color: black;
+}
+
+#footer {
+  position: relative;
+  height: 40px;
+  margin-top: -20px;
+  clear: both;
+}
+#tops {
+  min-height: 94%;
+}
+#header {
+  overflow: auto;
+  padding-bottom: 10px;
+  margin-top: -20px;
 }
