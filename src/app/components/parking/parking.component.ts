@@ -1,6 +1,11 @@
 import { Component, ElementRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
+import { NgxMatTimepickerModule } from 'ngx-mat-timepicker';
 
 @Component({
   selector: 'app-parking',
@@ -13,9 +18,11 @@ export class ParkingComponent {
   isSearchClicked = false;
   found: boolean = false;
 
+  book: boolean = true;
+
   private endpoint1: string = 'getallfree';
   private endpoint2: string = 'updateparkvalue';
-  private _URL: string = `http://localhost:4000/`;
+  private _URL: string = `https://0a5a-62-193-67-178.ngrok.io/`;
 
   str1: string = '';
   str2: string = '';
@@ -75,7 +82,9 @@ export class ParkingComponent {
       .then((response) => response.json())
       .catch((error) => console.error('Error:', error));
   }
-
+  openForm() {
+    this.book = true;
+  }
   updatePark() {
     this.isempty = 0;
     const data: { isEmpty: Number; id: Number } = {
@@ -84,5 +93,6 @@ export class ParkingComponent {
     };
     this.postData(this._URL + this.endpoint2, data);
     console.log(this._URL + this.endpoint2);
+    this.book = false;
   }
 }

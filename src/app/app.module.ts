@@ -10,22 +10,24 @@ import { HttpClientModule } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
 
 import { AppComponent } from './app.component';
-import { SearchBarComponent } from './components/search-bar/search-bar/search-bar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MenuComponent } from './components/menu/menu.component';
-import { BodyComponent } from './components/body/body.component';
+
 import { FooterComponent } from './components/footer/footer.component';
 import { ParkingComponent } from './components/parking/parking.component';
+import { NgxMatTimepickerModule } from 'ngx-mat-timepicker';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchBarComponent,
     HeaderComponent,
     MenuComponent,
-    BodyComponent,
     FooterComponent,
     ParkingComponent,
   ],
@@ -39,6 +41,11 @@ import { ParkingComponent } from './components/parking/parking.component';
     MatMenuModule,
     HttpClientModule,
     ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    NgxMatTimepickerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

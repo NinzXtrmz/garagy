@@ -1,26 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <div class="headings">
-        <h1 class="text-primary text-center mt-5 pt-5">PARKING JUST GOT A LOT SIMPLER</h1>
+  </head>
+  <body>
+    <div *ngIf="!book; else fillForm">
+      <div class="headings">
+        <h1 class="text-primary text-center mt-5 pt-5">
+          PARKING JUST GOT A LOT SIMPLER
+        </h1>
         <h4 class="pt-2 text-center">Book the Best Spaces & Save Up to 50%</h4>
-    </div>
-   
+      </div>
 
-<div class="search mt-5 d-flex position-relative">
-    <label for="search"></label>
-    <input id="search" type="text" name="username" #username class="border w-50  searchpark ps-3" placeholder="Search Address,place or event">
-    <button class="btn btn-outline-danger"(click)="getAvailableparks(username.value)">Find Parking</button>
-</div>
+      <div class="search mt-5 d-flex position-relative">
+        <label for="search"></label>
+        <input
+          id="search"
+          type="text"
+          name="username"
+          #username
+          class="border w-50 searchpark ps-3"
+          placeholder="Search Address,place or event"
+        />
+        <button
+          class="btn btn-outline-danger"
+          (click)="getAvailableparks(username.value)"
+        >
+          Find Parking
+        </button>
+      </div>
 
-<div class="table mt-4">
-    <table class="table border shadow outline">
-        <thead>
+      <div class="table mt-4">
+        <table class="table border shadow outline">
+          <thead>
             <th>city</th>
             <th>address</th>
             <th>area</th>
@@ -28,22 +42,59 @@
             <th>hours</th>
             <th>isEmpty</th>
             <th>Reservation</th>
-        </thead>
+          </thead>
 
-        <tbody>
+          <tbody>
             <tr>
-            <td>{{str1}}</td>
-            <td>{{str2}}</td>
-            <td>{{str3}}</td>
-            <td>{{str4}}</td>
-            <td>{{str5}}</td>
-            <td>{{str6}}</td>
-            <td><button class="btn-outline-primary btn d-none" #myButton  [ngClass]="{'d-none': !isSearchClicked}" (click)="updatePark()">book</button></td>
-        </tr>
-        </tbody>
-    </table>
+              <td>{{ str1 }}</td>
+              <td>{{ str2 }}</td>
+              <td>{{ str3 }}</td>
+              <td>{{ str4 }}</td>
+              <td>{{ str5 }}</td>
+              <td>{{ str6 }}</td>
+              <td>
+                <button
+                  class="btn-outline-primary btn d-none"
+                  #myButton
+                  [ngClass]="{ 'd-none': !isSearchClicked }"
+                  (click)="openForm()"
+                >
+                  book
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <ng-template #fillForm>
+      <div class="container">
+        <form class="form-Control">
+          <label> Choose your day or reservation:</label> <br />
+          <mat-form-field>
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker" />
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle
+              matIconSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker> </mat-form-field
+          ><br />
 
-</div>
+          <label> Arrival Time: </label><br />
+          <input type="text" id="date-1" /><br />
 
-</body>
+          <label> Departure Time: </label> <br />
+          <input type="text" id="date-2" /><br />
+
+          <span>
+            Rate is 50 LE for the first hour and 40 for each one after.
+          </span>
+          <span> Your total is </span><br />
+          <button (click)="updatePark()">Confirm</button>
+        </form>
+      </div>
+    </ng-template>
+  </body>
 </html>
