@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="headings">
+        <h1 class="text-primary text-center mt-5 pt-5">PARKING JUST GOT A LOT SIMPLER</h1>
+        <h4 class="pt-2 text-center">Book the Best Spaces & Save Up to 50%</h4>
+    </div>
+   
+
+<div class="search mt-5 d-flex position-relative">
+    <label for="search"></label>
+    <input id="search" type="text" name="username" #username class="border w-50  searchpark ps-3" placeholder="Search Address,place or event">
+    <button class="btn btn-outline-danger"(click)="getAvailableparks(username.value)">Find Parking</button>
+</div>
+
+<div class="table mt-4">
+    <table class="table border shadow outline">
+        <thead>
+            <th>city</th>
+            <th>address</th>
+            <th>area</th>
+            <th>parkid</th>
+            <th>hours</th>
+            <th>isEmpty</th>
+            <th>Reservation</th>
+        </thead>
+
+        <tbody>
+            <tr>
+            <td>{{str1}}</td>
+            <td>{{str2}}</td>
+            <td>{{str3}}</td>
+            <td>{{str4}}</td>
+            <td>{{str5}}</td>
+            <td>{{str6}}</td>
+            <td><button class="btn-outline-primary btn d-none" #myButton  [ngClass]="{'d-none': !isSearchClicked}" (click)="updatePark()">book</button></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>
