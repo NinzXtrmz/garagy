@@ -68,8 +68,8 @@
       </div>
     </div>
     <ng-template #fillForm>
-      <div class="container">
-        <form class="form-Control">
+      <form>
+        <div class="form-Control">
           <label> Choose your day or reservation:</label> <br />
           <mat-form-field>
             <mat-label>Choose a date</mat-label>
@@ -79,22 +79,105 @@
               matIconSuffix
               [for]="picker"
             ></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker> </mat-form-field
-          ><br />
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <br />
 
           <label> Arrival Time: </label><br />
-          <input type="text" id="date-1" /><br />
+          <div class="time-inputs">
+            <input
+              type="number"
+              id="hour-1"
+              (input)="firstHour = $any($event.target).value"
+            />
+            <input
+              type="number"
+              id="minutes-1"
+              (input)="firstMinute = $any($event.target).value"
+            />
+          </div>
+          <div class="time-check">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                name="time"
+                type="radio"
+                id="firstAM"
+                (input)="firstAM = $any($event.target).value"
+              />
+              <label class="form-check-label" for="flexRadioDefault1">
+                AM
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                name="time"
+                type="radio"
+                id="firstPM"
+                (input)="firstPM = $any($event.target).value"
+              />
+              <label class="form-check-label" for="flexRadioDefault2">
+                PM
+              </label>
+            </div>
+          </div>
 
-          <label> Departure Time: </label> <br />
-          <input type="text" id="date-2" /><br />
+          <label> Departure Time: </label>
+          <div class="time-inputs">
+            <input
+              type="number"
+              id="hour-2"
+              (input)="lastHour = $any($event.target).value"
+            /><input
+              type="number"
+              id="minutes-2"
+              (input)="lastMinute = $any($event.target).value"
+            />
+          </div>
+          <div class="time-check">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                name="time-2"
+                type="radio"
+                id="lastAM"
+                (input)="lastAM = $any($event.target).value"
+              />
+              <label class="form-check-label" for="flexRadioDefault1">
+                AM
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                name="time-2"
+                type="radio"
+                id="lastPM"
+                (input)="lastPM = $any($event.target).value"
+              />
+              <label class="form-check-label" for="flexRadioDefault2">
+                PM
+              </label>
+            </div>
+          </div>
+
+          <br />
 
           <span>
             Rate is 50 LE for the first hour and 40 for each one after.
           </span>
-          <span> Your total is </span><br />
+          <br />
+          <button (click)="getPrice()">Check total</button>
+          <br />
+          <span *ngIf="checked"> Your total is {{ this.price }}</span
+          ><br />
+          <button (click)="closeForm()" class="btn-outline-danger">
+            Cancel
+          </button>
           <button (click)="updatePark()">Confirm</button>
-        </form>
-      </div>
+        </div>
+      </form>
     </ng-template>
   </body>
 </html>

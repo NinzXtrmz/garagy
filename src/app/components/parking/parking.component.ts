@@ -17,8 +17,18 @@ export class ParkingComponent {
 
   isSearchClicked = false;
   found: boolean = false;
-
+  checked: boolean = false;
   book: boolean = true;
+  price = 0.0;
+  firstHour: number = 0.0;
+  lastHour: number = 0.0;
+  firstMinute: number = 0.0;
+  lastMinute: number = 0.0;
+  timeSpent: number = 0.0;
+  firstAM: boolean = false;
+  firstPM: boolean = false;
+  lastAM: boolean = false;
+  lastPM: boolean = false;
 
   private endpoint1: string = 'getallfree';
   private endpoint2: string = 'updateparkvalue';
@@ -93,6 +103,27 @@ export class ParkingComponent {
     };
     this.postData(this._URL + this.endpoint2, data);
     console.log(this._URL + this.endpoint2);
+    this.book = false;
+  }
+  getPrice() {
+    if (this.firstPM && this.firstHour != 12) {
+      this.firstHour = +12 + +this.firstHour;
+    }
+    if (this.lastPM && this.lastHour != 12) {
+      this.lastHour = +12 + +this.lastHour;
+    }
+    console.log(this.firstHour);
+    this.timeSpent =
+      (this.lastHour +
+        this.lastMinute / 6 -
+        (this.firstHour + this.firstMinute / 6)) /
+      10;
+
+    this.price = 50 + Math.ceil(this.timeSpent - 1) * 40;
+    this.checked = true;
+    return this.price;
+  }
+  closeForm() {
     this.book = false;
   }
 }

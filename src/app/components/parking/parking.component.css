@@ -8,6 +8,21 @@ form {
   width: 50%;
   padding: 10px;
   align-items: center;
+  align-content: center;
   display: flex;
   flex-direction: column;
+  text-align: center;
+}
+.time-check {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.time-inputs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.time-inputs input {
+  size: 20px;
 }
