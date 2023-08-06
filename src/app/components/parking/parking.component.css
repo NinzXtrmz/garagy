@@ -17,12 +17,24 @@ form {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  width: 150px;
+  margin-left: 180px;
 }
 .time-inputs {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  width: 275px;
+  margin-left: 120px;
 }
-.time-inputs input {
-  size: 20px;
+#button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.form-control {
+  width: 100px;
+}
+span {
+  font-size: 20px;
 }

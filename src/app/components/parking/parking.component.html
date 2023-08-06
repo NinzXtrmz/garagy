@@ -86,14 +86,19 @@
           <label> Arrival Time: </label><br />
           <div class="time-inputs">
             <input
+              class="form-control"
               type="number"
               id="hour-1"
               (input)="firstHour = $any($event.target).value"
+              placeholder="Hour"
             />
+            <span> : </span>
             <input
+              class="form-control"
               type="number"
               id="minutes-1"
               (input)="firstMinute = $any($event.target).value"
+              placeholder="Minute"
             />
           </div>
           <div class="time-check">
@@ -126,13 +131,19 @@
           <label> Departure Time: </label>
           <div class="time-inputs">
             <input
+              class="form-control"
               type="number"
               id="hour-2"
               (input)="lastHour = $any($event.target).value"
-            /><input
+              placeholder="Hour"
+            />
+            <span> : </span>
+            <input
+              class="form-control"
               type="number"
               id="minutes-2"
               (input)="lastMinute = $any($event.target).value"
+              placeholder="Minute"
             />
           </div>
           <div class="time-check">
@@ -174,10 +185,12 @@
           <span *ngIf="checked"> Your total is {{ this.price }}</span
           ><br />
           <br />
-          <button (click)="closeForm()" class="btn-outline-danger">
-            Cancel
-          </button>
-          <button (click)="updatePark()">Confirm</button>
+          <div id="button">
+            <button (click)="closeForm()" class="btn-outline-danger">
+              Cancel
+            </button>
+            <button (click)="updatePark()">Confirm</button>
+          </div>
         </div>
       </form>
     </ng-template>
