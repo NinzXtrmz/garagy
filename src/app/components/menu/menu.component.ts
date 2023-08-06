@@ -4,7 +4,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css'],
+  styleUrls: ['../../../../bootstrap.min.css', './menu.component.css'],
 })
 export class MenuComponent implements OnInit {
   faT = faTimes;

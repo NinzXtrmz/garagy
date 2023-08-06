@@ -4,8 +4,12 @@ nav {
   justify-content: space-evenly;
   width: 400px;
 }
-a {
+.nav-link {
   text-decoration: none;
   font-size: 1.25em;
   color: black;
+}
+ul {
+  padding-top: 10px;
+  margin-bottom: -20px;
 }
