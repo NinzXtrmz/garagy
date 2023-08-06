@@ -70,7 +70,7 @@
     <ng-template #fillForm>
       <form>
         <div class="form-Control">
-          <label> Choose your day or reservation:</label> <br />
+          <label> Choose your day of reservation:</label> <br />
           <mat-form-field>
             <mat-label>Choose a date</mat-label>
             <input matInput [matDatepicker]="picker" />
@@ -176,19 +176,16 @@
           <br />
 
           <span>
-            Rate is 50 LE for the first hour and 40 for each one after.
+            Rate is 50LE for the first hour and 40LE for each one after.
           </span>
           <br />
           <button (click)="getPrice()">Check total</button>
           <br />
           <br />
-          <span *ngIf="checked"> Your total is {{ this.price }}</span
-          ><br />
+          <span *ngIf="checked"> Your total is {{ this.price }} LE</span><br />
           <br />
           <div id="button">
-            <button (click)="closeForm()" class="btn-outline-danger">
-              Cancel
-            </button>
+            <button (click)="closeForm()" class="btn btn-danger">Cancel</button>
             <button (click)="updatePark()">Confirm</button>
           </div>
         </div>

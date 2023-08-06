@@ -104,13 +104,20 @@ export class ParkingComponent {
     this.postData(this._URL + this.endpoint2, data);
     console.log(this._URL + this.endpoint2);
     this.book = false;
+    //TODO update database
   }
   getPrice() {
     if (this.firstPM && this.firstHour != 12) {
       this.firstHour = +12 + +this.firstHour;
     }
+    if (this.firstAM && this.firstHour == 12) {
+      this.firstHour = 0;
+    }
     if (this.lastPM && this.lastHour != 12) {
       this.lastHour = +12 + +this.lastHour;
+    }
+    if (this.lastAM && this.lastHour == 12) {
+      this.lastHour = 0;
     }
     console.log(this.firstHour);
     this.timeSpent =
