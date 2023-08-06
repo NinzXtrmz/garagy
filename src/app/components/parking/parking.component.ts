@@ -5,7 +5,6 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
-import { NgxMatTimepickerModule } from 'ngx-mat-timepicker';
 
 @Component({
   selector: 'app-parking',
@@ -15,20 +14,27 @@ import { NgxMatTimepickerModule } from 'ngx-mat-timepicker';
 export class ParkingComponent {
   constructor(private http: HttpClient, private elementRef: ElementRef) {}
 
+  //Declarations corner
   isSearchClicked = false;
   found: boolean = false;
+
   checked: boolean = false;
   book: boolean = true;
+
   price = 0.0;
-  firstHour: number = 0.0;
-  lastHour: number = 0.0;
-  firstMinute: number = 0.0;
-  lastMinute: number = 0.0;
-  timeSpent: number = 0.0;
+  firstHour: number = 0;
+  lastHour: number = 0;
+  firstMinute: number = 0;
+  lastMinute: number = 0;
+  timeSpent: number = 0;
+
   firstAM: boolean = false;
   firstPM: boolean = false;
   lastAM: boolean = false;
   lastPM: boolean = false;
+
+  firstHourRate = 0.0;
+  hourlyRate? = 0.0;
 
   private endpoint1: string = 'getallfree';
   private endpoint2: string = 'updateparkvalue';
@@ -107,27 +113,43 @@ export class ParkingComponent {
     //TODO update database
   }
   getPrice() {
-    if (this.firstPM && this.firstHour != 12) {
-      this.firstHour = +12 + +this.firstHour;
+    if (this.firstPM) {
+      if (this.firstHour !== 12) {
+        if (this.lastAM && this.lastHour <= 12) {
+          this.lastHour = +12 + +this.lastHour;
+        } else {
+          if (this.lastHour <= 12) {
+            this.firstHour = +12 + +this.firstHour;
+          }
+        }
+      }
     }
-    if (this.firstAM && this.firstHour == 12) {
-      this.firstHour = 0;
+    if (this.firstAM) {
+      if (this.firstHour === 12) {
+        this.firstHour = 0;
+      }
     }
-    if (this.lastPM && this.lastHour != 12) {
-      this.lastHour = +12 + +this.lastHour;
+    if (this.lastPM) {
+      if (this.lastHour !== 12 && this.lastHour <= 12) {
+        this.lastHour = +12 + +this.lastHour;
+      }
     }
-    if (this.lastAM && this.lastHour == 12) {
-      this.lastHour = 0;
+    if (this.lastAM) {
+      if (this.lastHour === 12) {
+        this.lastHour = 0;
+      }
     }
-    console.log(this.firstHour);
     this.timeSpent =
-      (this.lastHour +
-        this.lastMinute / 6 -
-        (this.firstHour + this.firstMinute / 6)) /
-      10;
-
-    this.price = 50 + Math.ceil(this.timeSpent - 1) * 40;
+      +this.lastHour +
+      +this.lastMinute / 60 -
+      (+this.firstHour + +this.firstMinute / 60);
+    if (this.timeSpent === 0) {
+      this.price = 0;
+    } else {
+      this.price = 50 + Math.ceil(this.timeSpent - 1) * 40;
+    }
     this.checked = true;
+
     return this.price;
   }
   closeForm() {

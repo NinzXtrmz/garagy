@@ -33,7 +33,9 @@ form {
   justify-content: space-evenly;
 }
 .form-control {
-  width: 100px;
+  width: 90px;
+  display: flex;
+  flex-direction: column;
 }
 span {
   font-size: 20px;

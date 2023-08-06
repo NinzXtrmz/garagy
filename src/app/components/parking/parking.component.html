@@ -82,8 +82,9 @@
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
           <br />
+          <br />
 
-          <label> Arrival Time: </label><br />
+          <label> From: </label><br />
           <div class="time-inputs">
             <input
               class="form-control"
@@ -186,7 +187,9 @@
           <br />
           <div id="button">
             <button (click)="closeForm()" class="btn btn-danger">Cancel</button>
-            <button (click)="updatePark()">Confirm</button>
+            <button class="btn btn-success" (click)="updatePark()">
+              Confirm
+            </button>
           </div>
         </div>
       </form>
